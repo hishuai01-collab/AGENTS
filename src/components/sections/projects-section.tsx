@@ -20,13 +20,16 @@ export function ProjectsSection() {
         </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {siteContent.projects.map((project, index) => (
-            <Reveal key={project.title} delay={index * 0.08}>
-              <motion.article
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-[0_24px_80px_-52px_rgba(0,0,0,0.7)]"
-              >
+          {siteContent.projects.map((project, index) => {
+            const isLiveDemoExternal = /^https?:\/\//.test(project.liveDemoUrl);
+
+            return (
+              <Reveal key={project.title} delay={index * 0.08}>
+                <motion.article
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-[0_24px_80px_-52px_rgba(0,0,0,0.7)]"
+                >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-zinc-900/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 <div className="mb-5 flex items-center justify-between">
@@ -59,16 +62,17 @@ export function ProjectsSection() {
                 </div>
 
                 <div className="mt-auto flex flex-wrap items-center gap-3">
-                  <CtaLink href={project.liveDemoUrl} external variant="solid">
+                  <CtaLink href={project.liveDemoUrl} external={isLiveDemoExternal} variant="solid">
                     Live Demo
                   </CtaLink>
                   <CtaLink href={project.githubUrl} external variant="ghost">
                     GitHub
                   </CtaLink>
                 </div>
-              </motion.article>
-            </Reveal>
-          ))}
+                </motion.article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

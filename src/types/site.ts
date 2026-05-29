@@ -11,6 +11,7 @@ export type HeroContent = {
 };
 
 export type Project = {
+  slug: string;
   title: string;
   summary: string;
   features: string[];
