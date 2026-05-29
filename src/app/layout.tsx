@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Sora } from "next/font/google";
 
+import { SITE_URL } from "@/config/site";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -15,10 +16,8 @@ const sora = Sora({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://shuaishuai.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Shuai Shuai | AI Automation Developer & Full Stack Developer",
     template: "%s | Shuai Shuai",
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Shuai Shuai",
     title: "Shuai Shuai | AI Automation Developer & Full Stack Developer",
     description:
