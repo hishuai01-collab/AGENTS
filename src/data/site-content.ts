@@ -12,7 +12,7 @@ export const siteContent: SiteContent = {
     roles: "AI Automation Developer & Full Stack Developer",
     description:
       "I design and engineer premium digital products for modern businesses, from conversion-focused corporate websites to AI-powered internal systems that streamline operations and increase revenue.",
-    avatarSrc: "/images/professional-avatar.jpg",
+    avatarSrc: "/images/hero-avatar.png",
   },
   projects: [
     {
