@@ -12,8 +12,10 @@ export function HeroSection() {
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
         <div className="absolute top-56 -left-24 h-64 w-64 rounded-full border border-zinc-200" />
+        <div className="absolute top-20 right-0 h-72 w-72 rounded-full border border-zinc-200/80" />
       </div>
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
+
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.25fr_1fr]">
         <div className="space-y-10">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -21,7 +23,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex rounded-full border border-zinc-200 bg-white px-4 py-2 text-xs font-medium tracking-[0.16em] text-zinc-600 uppercase"
           >
-            Independent Developer Brand Site
+            Product-grade freelance engineering
           </motion.p>
 
           <div className="space-y-6">
@@ -66,6 +68,26 @@ export function HeroSection() {
               View Projects
             </CtaLink>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.34, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="grid gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 sm:grid-cols-3"
+          >
+            <div>
+              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Fast</p>
+              <p className="text-sm text-zinc-600">Rapid, production-ready delivery pace</p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Precise</p>
+              <p className="text-sm text-zinc-600">Clear architecture and maintainable code</p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Business-first</p>
+              <p className="text-sm text-zinc-600">Conversion and outcomes over decoration</p>
+            </div>
+          </motion.div>
         </div>
 
         <motion.div
@@ -83,6 +105,10 @@ export function HeroSection() {
                 priority
                 className="object-cover"
               />
+            </div>
+            <div className="absolute right-5 bottom-5 rounded-xl border border-zinc-200 bg-white/95 px-4 py-3 backdrop-blur">
+              <p className="text-xs font-semibold tracking-[0.18em] text-zinc-500 uppercase">Available</p>
+              <p className="mt-1 text-sm font-medium text-zinc-900">For freelance projects</p>
             </div>
           </div>
         </motion.div>

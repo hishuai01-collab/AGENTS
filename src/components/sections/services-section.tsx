@@ -18,15 +18,18 @@ export function ServicesSection() {
           />
         </Reveal>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {siteContent.services.map((service, index) => (
             <Reveal key={service.title} delay={index * 0.05}>
               <motion.article
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="h-full rounded-2xl border border-zinc-200 bg-white p-5"
+                className="h-full rounded-2xl border border-zinc-200 bg-white p-6"
               >
-                <h3 className="mb-3 text-base font-semibold text-zinc-950">{service.title}</h3>
+                <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-zinc-500 uppercase">
+                  0{index + 1}
+                </p>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-950">{service.title}</h3>
                 <p className="text-sm leading-6 text-zinc-600">{service.description}</p>
               </motion.article>
             </Reveal>

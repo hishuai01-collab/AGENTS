@@ -26,6 +26,7 @@ body {
 
 body {
   text-rendering: optimizeLegibility;
+  line-height: 1.5;
 }
 
 h1,
@@ -38,11 +39,34 @@ h4 {
 p,
 a,
 li,
-span {
+span,
+button {
   font-family: var(--font-manrope), sans-serif;
+}
+
+a {
+  transition: color 0.25s ease;
 }
 
 ::selection {
   background: #18181b;
   color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 999px;
+  border: 2px solid #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
 }

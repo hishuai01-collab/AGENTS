@@ -25,8 +25,14 @@ export function ProjectsSection() {
               <motion.article
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="group h-full rounded-3xl border border-zinc-200 bg-white p-6 shadow-[0_24px_80px_-52px_rgba(0,0,0,0.7)]"
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-[0_24px_80px_-52px_rgba(0,0,0,0.7)]"
               >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-zinc-900/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="mb-5 flex items-center justify-between">
+                  <span className="text-xs font-semibold tracking-[0.18em] text-zinc-500 uppercase">Project {index + 1}</span>
+                </div>
+
                 <div className="mb-5 space-y-3">
                   <h3 className="text-xl font-semibold tracking-tight text-zinc-950">{project.title}</h3>
                   <p className="text-sm leading-7 text-zinc-600">{project.summary}</p>

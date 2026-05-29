@@ -27,6 +27,18 @@ export function Header() {
           </CtaLink>
         </div>
       </div>
+
+      <nav className="flex gap-5 overflow-x-auto border-t border-zinc-200/70 px-6 py-3 md:hidden">
+        {siteContent.navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="shrink-0 text-xs font-medium tracking-[0.08em] text-zinc-600 uppercase"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }
