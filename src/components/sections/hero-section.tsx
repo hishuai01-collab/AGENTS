@@ -3,90 +3,85 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { siteContent } from "@/data/site-content";
+import { siteIdentity } from "@/data/site-identity";
+import { t, translations } from "@/i18n/translations";
+import { useLanguage } from "@/i18n/language-context";
 import { CtaLink } from "@/components/ui/cta-link";
 
 export function HeroSection() {
+  const { locale } = useLanguage();
+
   return (
     <section id="home" className="relative overflow-hidden px-6 pt-24 pb-20 lg:px-10 lg:pt-32">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
-        <div className="absolute top-56 -left-24 h-64 w-64 rounded-full border border-zinc-200" />
-        <div className="absolute top-20 right-0 h-72 w-72 rounded-full border border-zinc-200/80" />
+        <div className="absolute top-12 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
+        <div className="absolute top-24 right-8 h-72 w-72 rounded-full border border-zinc-300/60" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.25fr_1fr]">
-        <div className="space-y-10">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="space-y-9">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex rounded-full border border-zinc-200 bg-white px-4 py-2 text-xs font-medium tracking-[0.16em] text-zinc-600 uppercase"
+            className="inline-flex rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-zinc-600 uppercase"
           >
-            Product-grade freelance engineering
+            {t(translations.hero.eyebrow, locale)}
           </motion.p>
 
-          <div className="space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="text-pretty text-4xl font-semibold leading-tight tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl"
-            >
-              {siteContent.hero.name}
-            </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-sm font-semibold tracking-[0.2em] text-zinc-500 uppercase"
+          >
+            {translations.siteName} · {t(translations.roleText, locale)}
+          </motion.p>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.14, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-2xl text-pretty text-xl leading-relaxed font-medium text-zinc-700 sm:text-2xl"
-            >
-              {siteContent.hero.roles}
-            </motion.h2>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.14] tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl"
+          >
+            {t(translations.hero.headline, locale)}
+          </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-2xl text-pretty text-base leading-8 text-zinc-600 sm:text-lg"
-            >
-              {siteContent.hero.description}
-            </motion.p>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl text-pretty text-base leading-8 text-zinc-600 sm:text-lg"
+          >
+            {t(translations.hero.description, locale)}
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.24, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-wrap items-center gap-4"
           >
             <CtaLink href="#contact" variant="solid">
-              Contact Me
+              {t(translations.hero.ctaPrimary, locale)}
             </CtaLink>
             <CtaLink href="#projects" variant="ghost">
-              View Projects
+              {t(translations.hero.ctaSecondary, locale)}
             </CtaLink>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.34, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="grid gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 sm:grid-cols-3"
+            transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="grid gap-4 rounded-2xl border border-zinc-200 bg-white/65 p-5 shadow-[0_30px_70px_-60px_rgba(0,0,0,0.95)] backdrop-blur sm:grid-cols-3"
           >
-            <div>
-              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Fast</p>
-              <p className="text-sm text-zinc-600">Rapid, production-ready delivery pace</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Precise</p>
-              <p className="text-sm text-zinc-600">Clear architecture and maintainable code</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold tracking-tight text-zinc-950">Business-first</p>
-              <p className="text-sm text-zinc-600">Conversion and outcomes over decoration</p>
-            </div>
+            {translations.stats.map((item) => (
+              <div key={item.label.en}>
+                <p className="text-lg font-semibold tracking-tight text-zinc-950">{t(item.label, locale)}</p>
+                <p className="mt-2 text-sm text-zinc-600">{t(item.detail, locale)}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
 
@@ -96,19 +91,15 @@ export function HeroSection() {
           transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto w-full max-w-md"
         >
-          <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 p-3 shadow-[0_30px_90px_-45px_rgba(0,0,0,0.5)]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100">
-              <Image
-                src={siteContent.hero.avatarSrc}
-                alt="Professional female workplace portrait"
-                fill
-                priority
-                className="object-cover"
-              />
+          <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-50/80 p-3 shadow-[0_40px_120px_-52px_rgba(0,0,0,0.55)] backdrop-blur">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-zinc-200 bg-zinc-100">
+              <Image src={siteIdentity.avatarSrc} alt="Luo Meng portrait" fill priority className="object-cover" />
             </div>
-            <div className="absolute right-5 bottom-5 rounded-xl border border-zinc-200 bg-white/95 px-4 py-3 backdrop-blur">
-              <p className="text-xs font-semibold tracking-[0.18em] text-zinc-500 uppercase">Available</p>
-              <p className="mt-1 text-sm font-medium text-zinc-900">For freelance projects</p>
+            <div className="absolute right-5 bottom-5 rounded-xl border border-zinc-200 bg-white/92 px-4 py-3 backdrop-blur">
+              <p className="text-xs font-semibold tracking-[0.18em] text-zinc-500 uppercase">
+                {t(translations.hero.statusTitle, locale)}
+              </p>
+              <p className="mt-1 text-sm font-medium text-zinc-900">{t(translations.hero.statusBody, locale)}</p>
             </div>
           </div>
         </motion.div>

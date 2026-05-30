@@ -1,26 +1,28 @@
+import type { Locale, LocaleText } from "@/i18n/types";
+
 export type ProjectMetric = {
-  label: string;
+  label: LocaleText;
   value: string;
-  detail: string;
+  detail: LocaleText;
 };
 
 export type ProjectModule = {
-  name: string;
-  description: string;
-  bullets: string[];
+  name: LocaleText;
+  description: LocaleText;
+  bullets: Record<Locale, string[]>;
 };
 
 export type ProjectShowcase = {
   slug: string;
-  title: string;
-  category: string;
-  tagline: string;
-  overview: string;
-  audience: string;
-  timeline: string;
+  title: LocaleText;
+  category: LocaleText;
+  tagline: LocaleText;
+  overview: LocaleText;
+  audience: LocaleText;
+  timeline: LocaleText;
   metrics: ProjectMetric[];
   modules: ProjectModule[];
-  outcomes: string[];
+  outcomes: Record<Locale, string[]>;
   techStack: string[];
   githubUrl: string;
 };

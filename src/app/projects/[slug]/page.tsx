@@ -28,23 +28,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const path = `/projects/${project.slug}`;
+  const title = project.title.en;
+  const description = project.tagline.en;
 
   return {
-    title: `${project.title} Case Study`,
-    description: project.tagline,
+    title: `${title} Case Study`,
+    description,
     alternates: {
       canonical: path,
     },
     openGraph: {
-      title: `${project.title} | Shuai Shuai`,
-      description: project.tagline,
+      title: `${title} | Luo Meng`,
+      description,
       url: `${SITE_URL}${path}`,
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | Shuai Shuai`,
-      description: project.tagline,
+      title: `${title} | Luo Meng`,
+      description,
     },
   };
 }

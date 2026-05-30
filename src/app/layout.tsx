@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Sora } from "next/font/google";
+import Script from "next/script";
 
+import { LanguageProvider } from "@/i18n/language-context";
 import { SITE_URL } from "@/config/site";
 import "./globals.css";
 
@@ -19,13 +21,13 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Shuai Shuai | AI Automation Developer & Full Stack Developer",
-    template: "%s | Shuai Shuai",
+    default: "Luo Meng | AI Automation Developer & Full Stack Developer",
+    template: "%s | Luo Meng",
   },
   description:
-    "Premium personal brand portfolio for Shuai Shuai, specializing in enterprise websites, CRM systems, AI automation tools, and business dashboards.",
+    "Premium personal brand portfolio for Luo Meng, specializing in enterprise websites, CRM systems, AI automation tools, and business dashboards.",
   keywords: [
-    "Shuai Shuai",
+    "Luo Meng",
     "AI Automation Developer",
     "Full Stack Developer",
     "Next.js Developer",
@@ -39,8 +41,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Shuai Shuai",
-    title: "Shuai Shuai | AI Automation Developer & Full Stack Developer",
+    siteName: "Luo Meng",
+    title: "Luo Meng | AI Automation Developer & Full Stack Developer",
     description:
       "Premium personal brand portfolio for enterprise websites, CRM systems, AI automation tools, and business dashboards.",
     images: [
@@ -48,13 +50,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Shuai Shuai - AI Automation Developer & Full Stack Developer",
+        alt: "Luo Meng - AI Automation Developer & Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shuai Shuai | AI Automation Developer & Full Stack Developer",
+    title: "Luo Meng | AI Automation Developer & Full Stack Developer",
     description:
       "Premium personal brand portfolio for enterprise websites, CRM systems, AI automation tools, and business dashboards.",
     images: ["/opengraph-image"],
@@ -83,9 +85,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Luo Meng",
+    jobTitle: "AI Automation Developer, Full Stack Developer",
+    url: SITE_URL,
+    sameAs: ["https://t.me/Amengstudio", "https://github.com/hishuai01-collab"],
+  };
+
   return (
-    <html lang="en" className={`${manrope.variable} ${sora.variable} scroll-smooth antialiased`}>
-      <body className="min-h-screen bg-white font-sans text-zinc-950">{children}</body>
+    <html lang="zh" className={`${manrope.variable} ${sora.variable} scroll-smooth antialiased`}>
+      <body className="min-h-screen bg-white font-sans text-zinc-950">
+        <LanguageProvider>{children}</LanguageProvider>
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </body>
     </html>
   );
 }

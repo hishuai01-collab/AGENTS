@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             color: "#52525b",
           }}
         >
-          Shuai Shuai
+          Luo Meng
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "920px" }}>
           <div style={{ fontSize: 74, fontWeight: 600, lineHeight: 1.08 }}>AI Automation Developer</div>
